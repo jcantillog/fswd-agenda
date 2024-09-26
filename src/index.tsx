@@ -2,10 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { ConfigProvider } from "antd";
-// components
 import App from "./App";
-// modules
-import { ContactsPage } from "modules";
 // styles
 import "./index.css";
 
@@ -24,7 +21,7 @@ root.render(
         },
       }}
     >
-      <ContactsPage />
+      <App />
     </ConfigProvider>
   </React.StrictMode>
 );
