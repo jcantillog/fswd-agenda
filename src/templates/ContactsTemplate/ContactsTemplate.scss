@@ -1,0 +1,17 @@
+.contacts-layout {
+  min-height: 100vh;
+
+  .contacts-header {
+    background-color: white;
+  }
+
+  .contacts-content {
+    border-radius: 10px;
+    margin: 24px;
+    padding: 10px;
+    background-color: white;
+  }
+  .contacts-footer {
+    text-align: center;
+  }
+}

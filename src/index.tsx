@@ -4,6 +4,8 @@ import reportWebVitals from "./reportWebVitals";
 import { ConfigProvider } from "antd";
 // components
 import App from "./App";
+// modules
+import { ContactsPage } from "modules";
 // styles
 import "./index.css";
 
@@ -22,7 +24,7 @@ root.render(
         },
       }}
     >
-      <App />
+      <ContactsPage />
     </ConfigProvider>
   </React.StrictMode>
 );
