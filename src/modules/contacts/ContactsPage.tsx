@@ -7,7 +7,14 @@ import { ContactsTemplate } from "templates";
 const ContactsPage: React.FC = () => (
   <>
     <ContactsTemplate header={<span>Header</span>}>
-      <MyContact />
+      <MyContact
+        avatarProps={{
+          letters: "JC",
+          src: "https://avatars.githubusercontent.com/u/22524458?v=4",
+        }}
+        contactsActive={7}
+        contactsTotal={10}
+      />
     </ContactsTemplate>
   </>
 );
