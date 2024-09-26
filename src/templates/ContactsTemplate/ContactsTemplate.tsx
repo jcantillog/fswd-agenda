@@ -19,7 +19,12 @@ const ContactsTemplate: React.FC<ContactsTemplateProps> = ({
   <Layout className="contacts-layout">
     <Header className="contacts-header">{header}</Header>
     <Content className="contacts-content">
-      <Flex align="center" justify="center" vertical>
+      <Flex
+        className="contacts-content-inner"
+        align="center"
+        justify="center"
+        vertical
+      >
         {children}
       </Flex>
     </Content>

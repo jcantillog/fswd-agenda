@@ -1,6 +1,22 @@
 .my-contact-container {
+  width: 100%;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px lightgray;
+  padding: 10px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+
   .contacts-section {
     width: 100%;
+  }
+
+  .contact-icon {
+    font-size: 10px;
   }
 
   .right-icon {
