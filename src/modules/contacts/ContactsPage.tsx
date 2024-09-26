@@ -1,22 +1,13 @@
 import React from "react";
-// components
-import { MyContact } from "components/molecules";
+// organisms
+import { FavoritesContacts } from "components/organisms";
 // templates
 import { ContactsTemplate } from "templates";
 
 const ContactsPage: React.FC = () => (
-  <>
-    <ContactsTemplate header={<span>Header</span>}>
-      <MyContact
-        avatarProps={{
-          letters: "JC",
-          src: "https://avatars.githubusercontent.com/u/22524458?v=4",
-        }}
-        contactsActive={7}
-        contactsTotal={10}
-      />
-    </ContactsTemplate>
-  </>
+  <ContactsTemplate header={<span>Header</span>}>
+    <FavoritesContacts withOwnContact />
+  </ContactsTemplate>
 );
 
 export default ContactsPage;
