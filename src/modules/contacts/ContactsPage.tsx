@@ -3,9 +3,10 @@ import React from "react";
 import { FavoritesContacts } from "components/organisms";
 // templates
 import { ContactsTemplate } from "templates";
+import { Header } from "components/molecules";
 
 const ContactsPage: React.FC = () => (
-  <ContactsTemplate header={<span>Header</span>}>
+  <ContactsTemplate header={<Header />}>
     <FavoritesContacts withOwnContact />
   </ContactsTemplate>
 );

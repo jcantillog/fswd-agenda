@@ -1,15 +1,24 @@
+@import "App.scss";
+
 .contacts-layout {
   min-height: 100vh;
 
   .contacts-header {
+    display: flex;
+    align-items: center;
     background-color: white;
+    padding: 0 24px;
   }
 
   .contacts-content {
     border-radius: 10px;
     margin: 24px;
-    padding: 20px 50px;
+    padding: 20px;
     background-color: white;
+
+    @include respond-to($breakpoint-md) {
+      padding: 20px 50px;
+    }
   }
 
   .contacts-footer {

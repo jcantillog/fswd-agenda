@@ -47,7 +47,7 @@ const MyContact: React.FC<MyContactProps> = ({
           </Flex>
         </Flex>
       </Flex>
-      <RightOutlined className="right-icon" />
+      <RightOutlined className="right-icon" color="blue" />
     </Flex>
   );
 };
