@@ -22,7 +22,7 @@ const useGetFavorites = ({
   const [favorites, setFavorites] = useState<ContactType[]>([]);
 
   useEffect(() => {
-    if (contacts.length) {
+    if (contacts.length && !favorites.length) {
       const theFavorites = [];
       for (let i = 1; i <= 3; i++) {
         const number = getRandomNumber(contacts.length - 1);

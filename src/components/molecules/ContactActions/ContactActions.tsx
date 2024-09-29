@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex } from "antd";
+import { Flex, Popconfirm } from "antd";
 // components
 import { Avatar } from "components/atoms";
 // icons
@@ -38,9 +38,17 @@ const ContactActions: React.FC<ContactActionsProps> = ({
       </Avatar>
     )}
     {onDelete && (
-      <Avatar onClick={onDelete} size="small">
-        <DeleteFilled className="delete" />
-      </Avatar>
+      <Popconfirm
+        title="Delete the contact"
+        description="Are you sure to delete this contact?"
+        onConfirm={onDelete}
+        okText="Yes"
+        cancelText="No"
+      >
+        <Avatar size="small">
+          <DeleteFilled className="delete" />
+        </Avatar>
+      </Popconfirm>
     )}
   </Flex>
 );

@@ -9,8 +9,32 @@ import { ContactsList } from "components/molecules";
 import "./MyAgenda.scss";
 
 const MyAgenda: React.FC = () => {
-  const { contacts, error, isLoading, searchTerm, setShowContactModal } =
-    useContext(ContactContext);
+  const {
+    contacts,
+    error,
+    isLoading,
+    searchTerm,
+    setShowContactModal,
+    setContacts,
+  } = useContext(ContactContext);
+
+  const handleDelete = (id: number) => {
+    setContacts((contacts) => {
+      if (!contacts) return contacts;
+      const editedContactIndex = contacts.users.findIndex(
+        (contact) => contact.id === id
+      );
+
+      const newUsers = [...contacts.users];
+      newUsers.splice(editedContactIndex, 1);
+      return {
+        ...contacts,
+        users: newUsers,
+        limit: contacts.limit - 1,
+        total: contacts.total - 1,
+      };
+    });
+  };
 
   return (
     <>
@@ -28,7 +52,7 @@ const MyAgenda: React.FC = () => {
               : contacts.users
           }
           onEdit={(contact) => setShowContactModal(contact)}
-          onDelete={(id) => console.log(id)}
+          onDelete={handleDelete}
         />
       ) : (
         !isLoading && <Empty />

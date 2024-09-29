@@ -32,6 +32,7 @@ const ContactModal: React.FC = () => {
             ? {
                 ...contacts,
                 users: [newContact, ...contacts.users],
+                limit: contacts.limit + 1,
                 total: contacts.total + 1,
               }
             : contacts
