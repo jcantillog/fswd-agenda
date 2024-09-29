@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { ConfigProvider } from "antd";
 import App from "./App";
+// context
+import { ContactProvider } from "contexts/ContactsContext";
 // styles
 import "./index.css";
 
@@ -21,7 +23,9 @@ root.render(
         },
       }}
     >
-      <App />
+      <ContactProvider>
+        <App />
+      </ContactProvider>
     </ConfigProvider>
   </React.StrictMode>
 );

@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Flex } from "antd";
 // components
 import { Empty, Spin } from "components/atoms";
+// context
+import { ContactContext } from "contexts/ContactsContext";
 // hooks
-import { useGetContacts, useGetFavorites } from "hooks";
+import { useGetFavorites } from "hooks";
 // molecules
 import { FavoritesCard, MyContact } from "components/molecules";
 // styles
@@ -16,7 +18,7 @@ interface FavoritesContactsProps {
 const FavoritesContacts: React.FC<FavoritesContactsProps> = ({
   withOwnContact,
 }) => {
-  const { contacts, error, isLoading } = useGetContacts();
+  const { contacts, error, isLoading } = useContext(ContactContext);
   const { favorites } = useGetFavorites({ contacts: contacts?.users ?? [] });
 
   return (

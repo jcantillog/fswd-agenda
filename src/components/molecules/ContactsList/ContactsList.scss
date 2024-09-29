@@ -1,0 +1,8 @@
+@import "App.scss";
+
+.contact-list-container {
+  width: 100%;
+
+  @include respond-to($breakpoint-md) {
+  }
+}

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getAllContactsService } from "services";
 import { ContactsResponseAPI } from "types/contacts";
 
-interface UseGetContactsReturn {
+export interface UseGetContactsReturn {
   contacts?: ContactsResponseAPI;
   error?: string;
   isLoading: boolean;
