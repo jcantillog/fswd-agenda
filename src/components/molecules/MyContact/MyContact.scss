@@ -1,3 +1,5 @@
+@import "App.scss";
+
 .my-contact-container {
   width: 100%;
   border: 0.5px solid lightgray;
@@ -5,6 +7,10 @@
   box-shadow: 5px 5px 5px lightgray;
   padding: 10px;
   transition: transform 0.3s ease;
+
+  @include respond-to($breakpoint-md) {
+    width: 50%;
+  }
 
   &:hover {
     cursor: pointer;

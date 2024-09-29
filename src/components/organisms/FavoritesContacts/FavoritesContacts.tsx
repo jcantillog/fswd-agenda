@@ -3,9 +3,9 @@ import { Flex } from "antd";
 // components
 import { Empty, Spin } from "components/atoms";
 // hooks
-import { useGetContacts } from "hooks";
+import { useGetContacts, useGetFavorites } from "hooks";
 // molecules
-import { MyContact } from "components/molecules";
+import { FavoritesCard, MyContact } from "components/molecules";
 // styles
 import "./FavoritesContacts.scss";
 
@@ -17,12 +17,18 @@ const FavoritesContacts: React.FC<FavoritesContactsProps> = ({
   withOwnContact,
 }) => {
   const { contacts, error, isLoading } = useGetContacts();
+  const { favorites } = useGetFavorites({ contacts: contacts?.users ?? [] });
 
   return (
     <>
       <Spin isLoading={isLoading} />
       {contacts && !error ? (
-        <Flex className="favorites-contacts-container" vertical>
+        <Flex
+          className="favorites-contacts-container"
+          gap={20}
+          align="center"
+          vertical
+        >
           {withOwnContact && (
             <MyContact
               avatarProps={{
@@ -33,6 +39,11 @@ const FavoritesContacts: React.FC<FavoritesContactsProps> = ({
               contactsTotal={contacts.total}
             />
           )}
+          <Flex align="center" gap={10}>
+            {favorites.map((favorite) => (
+              <FavoritesCard contact={favorite} />
+            ))}
+          </Flex>
         </Flex>
       ) : (
         !isLoading && <Empty />

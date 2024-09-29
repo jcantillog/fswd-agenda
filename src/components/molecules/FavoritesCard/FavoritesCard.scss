@@ -1,0 +1,33 @@
+@import "App.scss";
+
+.favorites-card-container {
+  max-width: 100px;
+  background-color: #f1f1f5;
+  border: 0.5px solid lightgray;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px lightgray;
+  transition: transform 0.3s ease;
+
+  span.ant-typography {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  span.phone {
+    color: lightgreen;
+  }
+
+  span.other {
+    color: #0083fe;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+
+  @include respond-to($breakpoint-md) {
+    max-width: 200px;
+  }
+}
