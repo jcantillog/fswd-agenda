@@ -1,4 +1,5 @@
 // types
+import { useEffect, useState } from "react";
 import { ContactType } from "types/contacts";
 // utils
 import { getRandomNumber } from "utils";
@@ -18,11 +19,19 @@ interface UseGetFavoritesReturn {
 const useGetFavorites = ({
   contacts,
 }: UseGetFavoritesParams): UseGetFavoritesReturn => {
-  const favorites = [];
-  for (let i = 1; i <= 3; i++) {
-    const number = getRandomNumber(contacts.length - 1);
-    favorites.push(contacts[number]);
-  }
+  const [favorites, setFavorites] = useState<ContactType[]>([]);
+
+  useEffect(() => {
+    if (contacts.length) {
+      const theFavorites = [];
+      for (let i = 1; i <= 3; i++) {
+        const number = getRandomNumber(contacts.length - 1);
+        theFavorites.push(contacts[number]);
+      }
+      setFavorites(theFavorites);
+    }
+  }, [contacts.length]);
+
   return { favorites };
 };
 

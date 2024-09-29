@@ -16,7 +16,10 @@ interface FavoritesCardProps {
 }
 
 const FavoritesCard: React.FC<FavoritesCardProps> = ({ contact }) => {
-  const avatarSrc = useMemo(() => getContactAvatarSrc(), []);
+  const avatarSrc = useMemo(
+    () => getContactAvatarSrc(contact.id),
+    [contact.id]
+  );
   return (
     <Card className="favorites-card-container">
       <Flex align="center" gap={10} vertical>

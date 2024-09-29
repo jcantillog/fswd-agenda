@@ -5,7 +5,7 @@ import { ContactType } from "types/contacts";
 
 interface SubmitButtonProps {
   form: FormInstance;
-  onSubmit: () => void;
+  onSubmit: (values: Partial<ContactType>) => void;
 }
 
 const SubmitButton: React.FC<React.PropsWithChildren<SubmitButtonProps>> = ({
@@ -30,7 +30,10 @@ const SubmitButton: React.FC<React.PropsWithChildren<SubmitButtonProps>> = ({
       type="primary"
       htmlType="submit"
       disabled={!submittable}
-      onClick={onSubmit}
+      onClick={() => {
+        onSubmit(values);
+        form.resetFields();
+      }}
     >
       {children}
     </Button>
@@ -39,7 +42,7 @@ const SubmitButton: React.FC<React.PropsWithChildren<SubmitButtonProps>> = ({
 
 interface ContactFormProps {
   initialValues?: ContactType;
-  onSubmit: () => void;
+  onSubmit: (values: Partial<ContactType>) => void;
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({

@@ -25,7 +25,9 @@ const ContactsList: React.FC<ContactsListProps> = ({ contacts, onDelete }) => {
       renderItem={(contact, index) => (
         <List.Item>
           <List.Item.Meta
-            avatar={<Avatar src={getContactAvatarSrc()}>Profile</Avatar>}
+            avatar={
+              <Avatar src={getContactAvatarSrc(index + 1)}>Profile</Avatar>
+            }
             title={`${contact.firstName} ${contact.lastName}`}
             description={contact.phone}
           />

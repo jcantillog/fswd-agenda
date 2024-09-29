@@ -6,6 +6,9 @@ export interface UseGetContactsReturn {
   contacts?: ContactsResponseAPI;
   error?: string;
   isLoading: boolean;
+  setContacts: React.Dispatch<
+    React.SetStateAction<ContactsResponseAPI | undefined>
+  >;
 }
 
 /**
@@ -37,6 +40,7 @@ const useGetContacts = (): UseGetContactsReturn => {
     contacts,
     error,
     isLoading,
+    setContacts,
   };
 };
 

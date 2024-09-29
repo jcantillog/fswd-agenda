@@ -29,7 +29,7 @@ const ContactActions: React.FC<ContactActionsProps> = ({ onDelete }) => (
     </Avatar>
     {onDelete && (
       <Avatar onClick={onDelete} size="small">
-        <DeleteFilled className="red" />
+        <DeleteFilled className="delete" />
       </Avatar>
     )}
   </Flex>
