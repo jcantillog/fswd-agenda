@@ -26,6 +26,7 @@ const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
           <List.Item.Meta
             avatar={<Avatar src={getContactAvatarSrc()}>Profile</Avatar>}
             title={`${contact.firstName} ${contact.lastName}`}
+            description={contact.phone}
           />
           <ContactActions />
         </List.Item>

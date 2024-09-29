@@ -9,13 +9,24 @@ import { ContactsList } from "components/molecules";
 import "./MyAgenda.scss";
 
 const MyAgenda: React.FC = () => {
-  const { contacts, error, isLoading } = useContext(ContactContext);
+  const { contacts, error, isLoading, searchTerm } = useContext(ContactContext);
 
   return (
     <>
       <Spin isLoading={isLoading} />
       {contacts && !error ? (
-        <ContactsList contacts={contacts.users} />
+        <ContactsList
+          contacts={
+            searchTerm
+              ? contacts.users.filter(
+                  (user) =>
+                    user.firstName.includes(searchTerm) ||
+                    user.lastName.includes(searchTerm) ||
+                    user.maidenName.includes(searchTerm)
+                )
+              : contacts.users
+          }
+        />
       ) : (
         !isLoading && <Empty />
       )}
