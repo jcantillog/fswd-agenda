@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# FSWD Agenda project with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img width="1494" alt="image" src="https://github.com/user-attachments/assets/ad59f138-2ce6-4d70-b664-6f8789a23777">
+<img width="347" alt="image" src="https://github.com/user-attachments/assets/ab2fb0ec-4602-42a9-8772-dd0d0baa3496">
+
+This is a project for the FullStack Web Development and it was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
