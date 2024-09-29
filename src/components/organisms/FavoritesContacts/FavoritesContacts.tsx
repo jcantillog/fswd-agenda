@@ -43,7 +43,10 @@ const FavoritesContacts: React.FC<FavoritesContactsProps> = ({
           )}
           <Flex align="center" gap={10}>
             {favorites.map((favorite) => (
-              <FavoritesCard contact={favorite} />
+              <FavoritesCard
+                key={`${favorite.id}-favorite`}
+                contact={favorite}
+              />
             ))}
           </Flex>
         </Flex>

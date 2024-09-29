@@ -2,11 +2,15 @@ import React, { createContext, useState } from "react";
 // hooks
 import { useGetContacts } from "hooks";
 import { UseGetContactsReturn } from "hooks/useGetContacts";
+// types
+import { ContactType } from "types/contacts";
 
 export const ContactContext = createContext<
   UseGetContactsReturn & {
     searchTerm: string;
     setSearchTerm: (term: string) => void;
+    showContactModal: ContactType | boolean;
+    setShowContactModal: (isOpen: ContactType | boolean) => void;
   }
 >({
   isLoading: false,
@@ -14,6 +18,8 @@ export const ContactContext = createContext<
   error: undefined,
   searchTerm: "",
   setSearchTerm: () => {},
+  showContactModal: false,
+  setShowContactModal: () => {},
 });
 
 interface ContactProviderType {
@@ -25,10 +31,21 @@ export const ContactProvider: React.FC<ContactProviderType> = ({
 }) => {
   const { contacts, error, isLoading } = useGetContacts();
   const [searchTerm, setSearchTerm] = useState("");
+  const [showContactModal, setShowContactModal] = useState<
+    ContactType | boolean
+  >(false);
 
   return (
     <ContactContext.Provider
-      value={{ contacts, error, isLoading, searchTerm, setSearchTerm }}
+      value={{
+        contacts,
+        error,
+        isLoading,
+        searchTerm,
+        setSearchTerm,
+        showContactModal,
+        setShowContactModal,
+      }}
     >
       {children}
     </ContactContext.Provider>

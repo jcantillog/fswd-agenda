@@ -3,11 +3,20 @@ import { Flex } from "antd";
 // components
 import { Avatar } from "components/atoms";
 // icons
-import { PhoneFilled, VideoCameraFilled, MailFilled } from "@ant-design/icons";
+import {
+  PhoneFilled,
+  VideoCameraFilled,
+  MailFilled,
+  DeleteFilled,
+} from "@ant-design/icons";
 // styles
 import "./ContactActions.scss";
 
-const ContactActions: React.FC = () => (
+interface ContactActionsProps {
+  onDelete?: () => void;
+}
+
+const ContactActions: React.FC<ContactActionsProps> = ({ onDelete }) => (
   <Flex className="contact-actions-container" align="center" gap={10}>
     <Avatar size="small">
       <PhoneFilled className="phone" />
@@ -18,6 +27,11 @@ const ContactActions: React.FC = () => (
     <Avatar size="small">
       <MailFilled className="other" />
     </Avatar>
+    {onDelete && (
+      <Avatar onClick={onDelete} size="small">
+        <DeleteFilled className="red" />
+      </Avatar>
+    )}
   </Flex>
 );
 

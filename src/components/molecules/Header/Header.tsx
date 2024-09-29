@@ -10,9 +10,13 @@ import "./Header.scss";
 
 interface MyContactProps {
   onSearch?: ADSearchProps["onSearch"];
+  onAdd?: () => void;
 }
 
-const Header: React.FC<MyContactProps> = ({ onSearch = () => {} }) => {
+const Header: React.FC<MyContactProps> = ({
+  onSearch = () => {},
+  onAdd = () => {},
+}) => {
   return (
     <Flex
       className="header-container"
@@ -22,7 +26,7 @@ const Header: React.FC<MyContactProps> = ({ onSearch = () => {} }) => {
     >
       <Logo />
       <Search isLoading={false} onSearch={onSearch} />
-      <PlusCircleFilled className="right-icon" />
+      <PlusCircleFilled className="right-icon" onClick={onAdd} />
     </Flex>
   );
 };

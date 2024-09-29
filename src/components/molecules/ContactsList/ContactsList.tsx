@@ -13,9 +13,10 @@ import { getContactAvatarSrc } from "utils";
 
 interface ContactsListProps {
   contacts: ContactType[];
+  onDelete: (id: number) => void;
 }
 
-const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
+const ContactsList: React.FC<ContactsListProps> = ({ contacts, onDelete }) => {
   return (
     <List
       className="contact-list-container"
@@ -28,7 +29,7 @@ const ContactsList: React.FC<ContactsListProps> = ({ contacts }) => {
             title={`${contact.firstName} ${contact.lastName}`}
             description={contact.phone}
           />
-          <ContactActions />
+          <ContactActions onDelete={() => onDelete(contact.id)} />
         </List.Item>
       )}
     />

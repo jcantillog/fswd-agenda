@@ -26,6 +26,7 @@ const MyAgenda: React.FC = () => {
                 )
               : contacts.users
           }
+          onDelete={(id) => console.log(id)}
         />
       ) : (
         !isLoading && <Empty />

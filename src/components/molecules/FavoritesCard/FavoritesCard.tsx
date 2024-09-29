@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Card, Flex } from "antd";
 // components
 import { Avatar, Text } from "components/atoms";
@@ -15,16 +15,19 @@ interface FavoritesCardProps {
   contact: ContactType;
 }
 
-const FavoritesCard: React.FC<FavoritesCardProps> = ({ contact }) => (
-  <Card className="favorites-card-container">
-    <Flex align="center" gap={10} vertical>
-      <Avatar src={getContactAvatarSrc()}>Contact</Avatar>
-      <Text>
-        {contact.firstName} {contact.lastName}
-      </Text>
-      <ContactActions />
-    </Flex>
-  </Card>
-);
+const FavoritesCard: React.FC<FavoritesCardProps> = ({ contact }) => {
+  const avatarSrc = useMemo(() => getContactAvatarSrc(), []);
+  return (
+    <Card className="favorites-card-container">
+      <Flex align="center" gap={10} vertical>
+        <Avatar src={avatarSrc}>Contact</Avatar>
+        <Text>
+          {contact.firstName} {contact.lastName}
+        </Text>
+        <ContactActions />
+      </Flex>
+    </Card>
+  );
+};
 
 export default FavoritesCard;
