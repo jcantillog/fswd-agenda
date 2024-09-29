@@ -9,7 +9,8 @@ import { ContactsList } from "components/molecules";
 import "./MyAgenda.scss";
 
 const MyAgenda: React.FC = () => {
-  const { contacts, error, isLoading, searchTerm } = useContext(ContactContext);
+  const { contacts, error, isLoading, searchTerm, setShowContactModal } =
+    useContext(ContactContext);
 
   return (
     <>
@@ -26,6 +27,7 @@ const MyAgenda: React.FC = () => {
                 )
               : contacts.users
           }
+          onEdit={(contact) => setShowContactModal(contact)}
           onDelete={(id) => console.log(id)}
         />
       ) : (

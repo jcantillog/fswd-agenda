@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import type { FormInstance } from "antd";
 import { Button, Form, Input, Space } from "antd";
+// types
 import { ContactType } from "types/contacts";
 
 interface SubmitButtonProps {
@@ -46,10 +47,19 @@ interface ContactFormProps {
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({
-  initialValues,
+  initialValues = {
+    firstName: "",
+    lastName: "",
+    phone: "",
+  },
   onSubmit,
 }) => {
   const [form] = Form.useForm();
+
+  useEffect(() => {
+    form.setFieldsValue(initialValues);
+  }, [form, initialValues]);
+
   return (
     <Form
       form={form}

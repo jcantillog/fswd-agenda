@@ -7,16 +7,21 @@ import {
   PhoneFilled,
   VideoCameraFilled,
   MailFilled,
+  EditFilled,
   DeleteFilled,
 } from "@ant-design/icons";
 // styles
 import "./ContactActions.scss";
 
 interface ContactActionsProps {
+  onEdit?: () => void;
   onDelete?: () => void;
 }
 
-const ContactActions: React.FC<ContactActionsProps> = ({ onDelete }) => (
+const ContactActions: React.FC<ContactActionsProps> = ({
+  onEdit,
+  onDelete,
+}) => (
   <Flex className="contact-actions-container" align="center" gap={10}>
     <Avatar size="small">
       <PhoneFilled className="phone" />
@@ -27,6 +32,11 @@ const ContactActions: React.FC<ContactActionsProps> = ({ onDelete }) => (
     <Avatar size="small">
       <MailFilled className="other" />
     </Avatar>
+    {onEdit && (
+      <Avatar onClick={onEdit} size="small">
+        <EditFilled className="edit" />
+      </Avatar>
+    )}
     {onDelete && (
       <Avatar onClick={onDelete} size="small">
         <DeleteFilled className="delete" />
