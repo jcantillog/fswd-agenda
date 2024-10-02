@@ -1,10 +1,12 @@
-import React from "react";
-import { Flex } from "antd";
+import React, { useContext } from "react";
+import { Flex, Switch } from "antd";
+// contexts
+import { GlobalContext } from "contexts/GlobalContext";
 // components
 import { Logo, Search } from "components/atoms";
 import { ADSearchProps } from "components/atoms/Search/Search";
 // icons
-import { PlusCircleFilled } from "@ant-design/icons";
+import { PlusCircleFilled, SunFilled, MoonFilled } from "@ant-design/icons";
 // styles
 import "./Header.scss";
 
@@ -17,6 +19,7 @@ const Header: React.FC<MyContactProps> = ({
   onSearch = () => {},
   onAdd = () => {},
 }) => {
+  const { darkMode, setDarkMode } = useContext(GlobalContext);
   return (
     <Flex
       className="header-container"
@@ -26,7 +29,12 @@ const Header: React.FC<MyContactProps> = ({
     >
       <Logo />
       <Search isLoading={false} onSearch={onSearch} />
-      <PlusCircleFilled className="right-icon" onClick={onAdd} />
+      <PlusCircleFilled className="add-icon" onClick={onAdd} />
+      <Switch
+        checkedChildren={<MoonFilled className="dark-mode-icon" />}
+        onChange={() => setDarkMode(!darkMode)}
+        unCheckedChildren={<SunFilled className="light-mode-icon" />}
+      />
     </Flex>
   );
 };

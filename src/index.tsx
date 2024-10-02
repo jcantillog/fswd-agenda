@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import { ConfigProvider } from "antd";
 import App from "./App";
 // context
 import { ContactProvider } from "contexts/ContactsContext";
+import { GlobalProvider } from "contexts/GlobalContext";
 // styles
 import "./index.css";
 
@@ -13,20 +13,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ConfigProvider
-      theme={{
-        components: {
-          Typography: {
-            titleMarginTop: 0,
-            titleMarginBottom: 0,
-          },
-        },
-      }}
-    >
+    <GlobalProvider>
       <ContactProvider>
         <App />
       </ContactProvider>
-    </ConfigProvider>
+    </GlobalProvider>
   </React.StrictMode>
 );
 
